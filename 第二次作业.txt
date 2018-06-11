@@ -1,0 +1,12 @@
+def url(i):
+    url=['http://www.17k.com/book/1398783.html','http://www.17k.com/book/2811825.html']
+    file_path='C:\\Users\\dell\\Desktop\\zhangying.txt'
+    header={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36'}
+    import requests
+    response = requests.get('http://www.17k.com/')
+    with open(file_path,'a',encoding='utf-8') as f:
+        for i in range(2):
+            c = requests.get(url[i],headers=header)
+            f.write(c.text)
+    print(i)
+url(i)
