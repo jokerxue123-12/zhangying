@@ -1,0 +1,19 @@
+import requests
+b=requests.get('http://www.17k.com/book/2686894.html')
+b.text
+from lxml import etree
+tree = etree.HTML(b.text)
+tree
+div = tree.xpath('//div[@class="Nav"]')
+print(div)
+for i in div:
+    print(i.xpath('/html/body/div/div/a[@href]/@href'))
+
+
+
+import re
+content = 'Hello 1234567 hahah 123 lalal 456'
+res = re.match('^H.*\d{3}(\d{1})\d{3}.*\d{1}(\d{1})\d{1}.*\s(\d{3})',content)
+print(res.group(1))
+print(res.group(2))
+print(res.group(3))
