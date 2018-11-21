@@ -1,0 +1,18 @@
+1.create database zhangying_mysql charset=utf8;
+use zhangying_mysql;
+create table shopping(id int auto_increment primary key,
+    -> name varchar(30) not null,
+    -> password varchar(30) not null,
+    -> favor varchar(40),
+    -> discount varchar(40),
+    -> wish varchar(40));
+desc shopping;
+2. insert into shopping(id,name,password,favor,discount,wish)
+  -> values(1,"zhangying","123","cat","4","dog");
+insert into shopping(name,password,favor,discount,wish)
+-> values("wuqiong","12345","panada","6","clothes"),("luhao","786159","huluwa","8","baicai");
+ select * from shopping;
+3.update shopping set wish="rabit" where wish="dog";
+select * from shopping;
+4.delete from shopping where name="zhangying";
+select * from shopping;
