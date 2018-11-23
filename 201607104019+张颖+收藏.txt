@@ -1,0 +1,45 @@
+sudo mysql -u root -p;
+use zhangying_mysql;
+show tables;
+select * from shoucang;
+desc shoucang;
++---------+-------------+------+-----+---------+----------------+
+| Field   |     Type         | Null | Key |  Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| id      | int(11)           | NO   | PRI | NULL    | auto_increment |
+| collect | varchar(30) | YES  |     |    NULL    |               
++---------+-------------+------+-----+---------+----------------
+insert into shoucang(id,collect)values(1,"mac");
+insert into shoucang(collect)values("sk2"),("skirt"),("panada"),("rabbit");
+select * from shoucang;
++----+---------+
+| id | collect |
++----+---------+
+|  1 | mac     |
+|  2 | sk2     |
+|  3 | skirt   |
+|  4 | panada  |
+|  5 | rabbit  |
++----+---------+
+alter table shoucang add collect1 int default 0;
+select * from shoucang;
++----+---------+----------+
+| id | collect | collect1 |
++----+---------+----------+
+|  1 | mac       |        0 |
+|  2 | sk2        |        0 |
+|  3 | skirt      |        0 |
+|  4 | panada  |        0 |
+|  5 | rabbit    |        0 |
++----+---------+----------+
+update shoucang set collect1=1 where collect=sk2;
+select * from shoucang;
++----+---------+----------+
+| id | collect | collect1 |
++----+---------+----------+
+|  1 | mac     |        0 |
+|  2 | sk2     |        1 |
+|  3 | skirt   |        0 |
+|  4 | panada  |        0 |
+|  5 | rabbit  |        0 |
++----+---------+----------+
