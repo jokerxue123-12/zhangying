@@ -1,0 +1,153 @@
+sudo mysql -u root -p
+create database zhangying_mysql charset=utf8;
+show databases£»
+use zhangying_mysql;
+create table company1(id int auto_increment primary key, salary int(10));
+desc company1;
+--------+---------+------+-----+---------+----------------+
+| Field  | Type    | Null | Key | Default | Extra 
++--------+---------+------+-----+---------+----------------+
+| id       | int(11) | NO   | PRI | NULL    | auto_increment |
+| salary | int(10) | YES  |        | NULL    |          
++--------+---------+------+-----+---------+----------------+
+
+insert into company1(salary)values("2000"),("3000"),("4000"),("5000"),("5500"),("6000"),("6200"),("7000"),("7500"),("7800"),("8000"),("2500"),("4300"),("3550"),("2200");
+select * from company1; 
+| id | salary |
+|  1 |   2000 |
+|  2 |   3000 |
+|  3 |   4000 |
+|  4 |   5000 |
+|  5 |   5500 |
+|  6 |   6000 |
+|  7 |   6200 |
+|  8 |   7000 |
+|  9 |   7500 |
+| 10 |   7800 |
+| 11 |   8000 |
+| 12 |   2500 |
+| 13 |   4300 |
+| 14 |   3550 |
+| 15 |   2200 |
+create table company2(id int auto_increment primary key, salary int(10));
+insert into company2(salary)values("2000"),("3000"),("4000"),("5000"),("5500"),("6000"),("6200"),("7000"),("7500"),("7800"),("8000"),("8500"),("9000"),("3550"),("3300");
+select * from company2;
++----+--------+
+| id | salary |
++----+--------+
+|  1 |   2000 |
+|  2 |   3000 |
+|  3 |   4000 |
+|  4 |   5000 |
+|  5 |   5500 |
+|  6 |   6000 |
+|  7 |   6200 |
+|  8 |   7000 |
+|  9 |   7500 |
+| 10 |   7800 |
+| 11 |   8000 |
+| 12 |   8500 |
+| 13 |   9000 |
+| 14 |   3550 |
+| 15 |   3300 |
+1.select sum(salary) from company1;
++-------------+
+| sum(salary) |
++-------------+
+|       74550 |
++-------------+
+select sum(salary) from company2;
++-------------+
+| sum(salary) |
++-------------+
+|       86350 |
++-------------+
+select max(salary) from company1;
++-------------+
+| max(salary) |
++-------------+
+|        8000 |
++-------------+
+select max(salary) from company2;
++-------------+
+| max(salary) |
++-------------+
+|        9000 |
++-------------
+select min(salary) from company1;
++-------------+
+| min(salary) |
++-------------+
+|        2000 |
++-------------
+select min(salary) from company2;
++-------------+
+| min(salary) |
++-------------+
+|        2000 |
++-------------
+2.
+3. select * from company2 order by salary desc limit 0,5;
++----+--------+
+| id  |  salary |
++----+--------+
+| 13 |   9000 |
+| 12 |   8500 |
+| 11 |   8000 |
+| 10 |   7800 |
+|  9  |  7500  |
++----+--------+
+select * from company2 order by salary desc limit 5,5;
++----+--------+
+| id |  salary |
++----+--------+
+|  8 |   7000 |
+|  7 |   6200 |
+|  6 |   6000 |
+|  5 |   5500 |
+|  4 |   5000 |
++----+--------+
+select * from company2 order by salary desc limit 10,5;
++----+--------+
+| id |  salary |
++----+--------+
+|  3 |   4000 |
+| 14 |  3550 |
+| 15 |  3300 |
+|  2 |   3000 |
+|  1 |   2000 |
++----+--------+
+select * from company1 order by salary desc limit 0,5;
++----+--------+
+| id |   salary |
++----+--------+
+| 11 |   8000 |
+| 10 |   7800 |
+|  9 |    7500 |
+|  8 |    7000 |
+|  7 |    6200 |
++----+--------+
+select * from company1 order by salary desc limit 5,5;
++----+--------+
+| id |  salary |
++----+--------+
+|  6 |   6000 |
+|  5 |   5500 |
+|  4 |   5000 |
+| 13 |  4300 |
+|  3 |   4000 |
++----+--------+
+select * from company1 order by salary desc limit 10,5;
++----+--------+
+| id |    salary |
++----+--------+
+| 14 |   3550 |
+|  2  |   3000 |
+| 12 |   2500 |
+| 15 |   2200 |
+|  1  |   2000 |
++----+--------
+
+
+
+
