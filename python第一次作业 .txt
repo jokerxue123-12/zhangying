@@ -1,0 +1,142 @@
+                                               第一个作业
+# 第一题 编写一个测试程序使用n(3n-1)/2显示前100个五角数，每行显示十个。
+def getPentagonalNumber(n):
+    c = int(n * (3* n -1) / 2)
+    if n%10 !=0:
+        print(c,end=' ')
+    else:
+        print(c)
+for i in range(1,101):
+    getPentagonalNumber(i)
+
+# 第二题 编写一个函数，计算一个整数各个数字的和。
+def sumDigits(n):
+    g=n%10
+    s=n//10%10
+    b=n//100
+    sum=g+s+b
+    return sum
+n=int(input('输入一个数：'))
+sumDigits(n)
+
+# 第三题 对三个数排序
+def displaysortNumbers(num1,num2,num3):
+    res = [num1,num2,num3]
+    res.sort()       #排序，默认升序
+    print(res)
+displaysortNumbers(3,1,2)
+
+# 第五题
+def printchars(ch1,ch2,n):
+    count=0
+    for i in range(ord(ch1),ord(ch2)+1):
+        print(chr(i),end=" ")
+        count += 1
+        if count % n == 0:
+            print()
+ch1=input('请输入第一字符：')
+ch2=input('请输入第二字符：')
+n=int(input('请输入每行打印的个数：'))
+printchars(ch1,ch2,n)
+
+# 第六题
+def numberOfDayInYear():
+    c=31+28+31+30+31+30+31+31+30+31+30+31
+    for year in range(2010,2021,1): 
+        i=year
+        if year % 4 == 0 and  year % 100 != 0 or year % 400 == 0:
+            print('%d年有%d天'%(i,c+1)) 
+        else:
+            print ('%d年有%d天'%(i,c))  
+numberOfDayInYear()
+
+# 第七题
+import math
+def distance(x1,y1,x2,y2):
+    a=x2-x1
+    b=y2-y1
+    c=math.sqrt((a**2)+(b**2))
+    return c
+x1,y1,x2,y2 = map(int,input("请输入坐标:").split())
+distance(x1,y1,x2,y2)
+
+# 第九题
+import time
+localtime = time.asctime(time.localtime(time.time()))
+print("本地时间为 :", localtime)
+
+# 第十题
+import random
+def dice():
+      a=random.choice([1,2,3,4,5,6])
+      b=random.choice([1,2,3,4,5,6])
+      if a+b==2 or  a+b==3 or a+b==12:
+            print('%d + %d = %d' %(a,b,a+b))
+            print('输了')
+      elif a+b==7 or a+b==11:
+            print('%d + %d = %d' %(a,b,a+b))
+            print('赢了')
+      else:
+            print('%d + %d = %d' %(a,b,a+b))
+            c=random.choice([1,2,3,4,5,6])
+            d=random.choice([1,2,3,4,5,6])
+            if c+d==7:
+                  print('%d + %d = %d' %(c,d,c+d))
+                  print('输了')
+            elif c+d==a+b:
+                  print('%d + %d = %d' %(c,d,c+d))
+                  print('赢了')
+dice()
+
+
+
+
+           王者荣耀游戏
+class wangzhe(object):
+    def __init__(self,a):
+        self.a=a
+    def xz(self):
+        if self.a==1:
+            print("人机")
+        elif self.a==2:
+            print("多人对战")
+        else:
+            print("对战")
+    def shuru(self):
+        res=input("输入")
+        print(res)
+    def select(self):
+        print("请选择人物","典韦","赵云","鲁班")
+        res=input(">>")
+        print(res)
+    def shuxing(self):
+        if self.a == "典韦":
+            print("典韦","战力:1200","防御:1209")
+        elif self.a == "赵云":
+            print("赵云","战力:1400","防御:1090")
+        else:
+            print("鲁班","战力:888","防御:999")
+    def suiji(self):
+        import numpy as np
+        res=np.random.choice(["典韦","赵云","鲁班"])
+        print(res)
+    def duizhan(self):
+        print("是否进入游戏","是","否")
+        self.a=input(">>")
+        print(self.a)
+        if self.a=="是":
+            print("游戏开始")
+        elif self.a=="否":
+            print("游戏结束")
+    def sure(self):
+        print("正在加载")
+rong=wangzhe(1)
+rong.xz()
+rong.shuru()
+rong.select()
+rong.shuxing()
+rong.suiji()
+rong.duizhan()
+rong.sure()
+
+
